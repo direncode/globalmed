@@ -10,6 +10,7 @@ export default function Header() {
     { href: '/', label: 'About' },
     { href: '/our-partner', label: 'Our Partner' },
     { href: '/get-involved', label: 'Get Involved' },
+    { href: '/donate', label: 'Donate' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -33,16 +34,20 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-[#0a1628] hover:text-[#0047bb] font-medium transition-colors text-sm"
+                className={`px-4 py-2 font-medium transition-colors text-sm ${
+                  link.href === '/donate'
+                    ? 'text-[#0047bb] hover:text-[#002d72]'
+                    : 'text-[#0a1628] hover:text-[#0047bb]'
+                }`}
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="/get-involved"
+              href="/donate"
               className="ml-4 bg-[#0047bb] text-white px-6 py-2.5 rounded font-semibold hover:bg-[#002d72] transition-colors text-sm"
             >
-              Join Us
+              Donate Now
             </Link>
           </div>
 
@@ -76,11 +81,11 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/get-involved"
+              href="/donate"
               className="block mt-4 bg-[#0047bb] text-white px-6 py-3 rounded font-semibold text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Join Us
+              Donate Now
             </Link>
           </div>
         )}

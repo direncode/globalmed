@@ -16,10 +16,16 @@ export default function Footer() {
                 <span className="text-xs text-[#0066cc] font-medium tracking-wide">AT UNC-CHAPEL HILL</span>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-md mb-6">
               Health is a human right. People deserve the right to not just survive, but thrive.
               We are committed to building sustainable, community-driven solutions to improve global health equity.
             </p>
+            <Link
+              href="/donate"
+              className="inline-block bg-[#0047bb] text-white px-6 py-2.5 rounded font-semibold hover:bg-[#002d72] transition-colors text-sm"
+            >
+              Donate Now
+            </Link>
           </div>
 
           {/* Quick Links */}
@@ -39,6 +45,11 @@ export default function Footer() {
               <li>
                 <Link href="/get-involved" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Get Involved
+                </Link>
+              </li>
+              <li>
+                <Link href="/donate" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  Donate
                 </Link>
               </li>
               <li>
