@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+// Lazy initialization to avoid build-time errors
+function getStripe() {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return new Stripe(secretKey);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,6 +21,8 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    const stripe = getStripe();
 
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
@@ -44,8 +53,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (error) {
     console.error('Stripe error:', error);
+    const message = error instanceof Error ? error.message : 'Failed to create checkout session';
     return NextResponse.json(
-      { error: 'Failed to create checkout session' },
+      { error: message },
       { status: 500 }
     );
   }
