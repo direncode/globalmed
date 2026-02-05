@@ -8,54 +8,148 @@ export const metadata: Metadata = {
 
 export default function DonationSuccess() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4 py-20">
-      <div className="max-w-xl mx-auto text-center">
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
-          <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
+    <div>
+      {/* Breadcrumb */}
+      <nav className="bg-white border-b border-[#dfe1e2]">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <ol className="usa-breadcrumb-list text-sm">
+            <li>
+              <Link href="/" className="text-[#005ea2] hover:underline">Home</Link>
+            </li>
+            <li className="before:content-['/'] before:mx-2 before:text-[#565c65]">
+              <Link href="/donate" className="text-[#005ea2] hover:underline">Donate</Link>
+            </li>
+            <li className="before:content-['/'] before:mx-2 before:text-[#565c65]">
+              <span className="text-[#565c65]">Confirmation</span>
+            </li>
+          </ol>
         </div>
+      </nav>
 
-        <h1 className="text-4xl font-bold text-[#0a1628] mb-4">
-          Thank You!
-        </h1>
+      {/* Success Content */}
+      <div className="min-h-[60vh] flex items-center justify-center px-4 py-16 bg-[#f0f0f0]">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded border border-[#dfe1e2] overflow-hidden">
+            {/* Header */}
+            <div className="bg-[#00a91c] px-8 py-6 text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-[#00a91c]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <h1 className="text-3xl font-bold text-white">
+                Thank You!
+              </h1>
+              <p className="text-white/90 mt-2">
+                Your donation has been successfully processed.
+              </p>
+            </div>
 
-        <p className="text-xl text-gray-600 mb-8">
-          Your generous donation has been received. Your support helps provide essential healthcare
-          services to communities in Guatemala through ASSADE.
-        </p>
+            {/* Content */}
+            <div className="p-8">
+              <div className="usa-alert usa-alert-success mb-6">
+                <div className="flex gap-3">
+                  <svg className="w-5 h-5 text-[#00a91c] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <div>
+                    <p className="font-bold">Your generous donation has been received.</p>
+                    <p className="text-sm mt-1">
+                      A confirmation email will be sent to your email address shortly.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-        <div className="bg-gray-50 rounded-xl p-6 mb-8">
-          <h2 className="text-lg font-semibold text-[#0a1628] mb-2">What Happens Next?</h2>
-          <p className="text-gray-600 text-sm">
-            You will receive a confirmation email with details of your donation.
-            Your contribution will directly support ASSADE&apos;s healthcare programs,
-            including women&apos;s health services, dental care, and community health education.
-          </p>
-        </div>
+              <div className="bg-[#f0f0f0] rounded p-6 mb-6">
+                <h2 className="text-lg font-bold text-[#1b1b1b] mb-3">What Happens Next?</h2>
+                <ul className="space-y-2 text-sm text-[#565c65]">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-[#005ea2] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <span>You will receive a confirmation email with your donation details</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-[#005ea2] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <span>If requested, a tax receipt will be emailed to you</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-[#005ea2] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <span>Your contribution will directly support ASSADE&apos;s healthcare programs in Guatemala</span>
+                  </li>
+                </ul>
+              </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/"
-            className="bg-[#0047bb] text-white px-8 py-3 rounded font-semibold hover:bg-[#002d72] transition-colors"
-          >
-            Return Home
-          </Link>
-          <Link
-            href="/get-involved"
-            className="border-2 border-[#0047bb] text-[#0047bb] px-8 py-3 rounded font-semibold hover:bg-[#0047bb] hover:text-white transition-colors"
-          >
-            Get Involved
-          </Link>
-        </div>
+              <h2 className="text-lg font-bold text-[#1b1b1b] mb-3">Your Impact</h2>
+              <p className="text-[#565c65] mb-6">
+                Your support helps provide essential healthcare services to over 800 patients monthly
+                in San Andrés Itzapa and Chimaltenango, Guatemala. This includes women&apos;s health
+                services, pediatric care, dental services, and community health education.
+              </p>
 
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="text-gray-500 text-sm">
-            Questions about your donation? Contact us at{' '}
-            <a href="mailto:globemed@unc.edu" className="text-[#0047bb] hover:underline">
-              globemed@unc.edu
-            </a>
-          </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/"
+                  className="bg-[#005ea2] text-white px-6 py-3 rounded font-bold text-center hover:bg-[#1a4480] transition-colors"
+                >
+                  Return Home
+                </Link>
+                <Link
+                  href="/get-involved"
+                  className="border-2 border-[#005ea2] text-[#005ea2] px-6 py-3 rounded font-bold text-center hover:bg-[#005ea2] hover:text-white transition-colors"
+                >
+                  Get Involved
+                </Link>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="bg-[#f0f0f0] px-8 py-4 border-t border-[#dfe1e2]">
+              <p className="text-[#565c65] text-sm text-center">
+                Questions about your donation? Contact us at{' '}
+                <a href="mailto:globemed@unc.edu" className="text-[#005ea2] font-bold hover:underline">
+                  globemed@unc.edu
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Share Section */}
+          <div className="mt-8 text-center">
+            <h3 className="text-lg font-bold text-[#1b1b1b] mb-4">Share Your Support</h3>
+            <p className="text-sm text-[#565c65] mb-4">
+              Help us spread the word about GlobeMed at UNC and ASSADE&apos;s work in Guatemala.
+            </p>
+            <div className="flex justify-center gap-4">
+              <a
+                href="https://www.instagram.com/globemedatunc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#005ea2] hover:bg-[#1a4480] rounded flex items-center justify-center transition-colors text-white"
+                aria-label="Follow on Instagram"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/globemedatunc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-[#005ea2] hover:bg-[#1a4480] rounded flex items-center justify-center transition-colors text-white"
+                aria-label="Follow on Facebook"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
